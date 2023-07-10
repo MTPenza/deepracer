@@ -15,6 +15,7 @@
 - `curl -s checkip.dyndns.org`
     - IP might change periodically
 - `./create-base-resources.sh pcw-deepracer-base <ip_address>`
+    - Should only need to be done one time, but doesn't matter if run again
 - Open `custom-files/run.env`
 - Set `DR_LOCAL_S3_MODEL_PREFIX` to the new model name (eg, "PCW-PPL-VV-12")
 - `DR_LOCAL_S3_PRETRAINED_PREFIX` to the model you want to clone/train based on
