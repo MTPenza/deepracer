@@ -7,7 +7,9 @@
 - Navigate in your browser to: AWS DeepRacer -> Your models -> <specific_model>
 - Select the "Actions" tab on the right
 - "Copy to S3"
-    - Our S3 bucket: pcw-deepracer-base-bucket-um12ndpazfns
+    - Create a new bucket
+- Run the following command with your own substitutions in Cloudshell:
+        -  `aws s3 cp "s3://<bucketCreatedInPreviousStep>/<modelName>/<date>/" s3://pcw-deepracer-base-bucket-um12ndpazfns/<modelName> --recursive`
 - Store model and logs
     - One can store video too, but more expensive and no point
 
@@ -20,7 +22,7 @@
 - Set `DR_LOCAL_S3_MODEL_PREFIX` to the new model name (eg, "PCW-PPL-VV-12")
 - `DR_LOCAL_S3_PRETRAINED_PREFIX` to the model you want to clone/train based on
     - If not cloning/basing off model, then instead set `DR_LOCAL_S3_PRETRAINED=False`
-- `./create-spot-instance.sh pcw-deepracer-base pcw-<training-instance_name> 30`
+- `./create-spot-instance.sh pcw-deepracer-base pcw-<training-instance_name> 30` OR `./create-standard-instance.sh pcw-deepracer-base <training_instance_name> 30`
     - 30 = time to live. Can change as wanted
     - Alternative command: `./create-standard-instance.sh`. Spot instances cost less but also offer less availability
         - I (styx) have very rarely been able to get a spot instance
